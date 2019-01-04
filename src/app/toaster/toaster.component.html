@@ -1,4 +1,4 @@
-<div *ngFor="let toast of toasts" class="{{ cssClass(toast) }} alert-dismissable">
+<div *ngFor="let toast of toasts" class="{{ cssClass(toast) }} toast-dismissable">
     {{toast.message}}
-    <a class="close" (click)="removeAlert(toast)">&times;</a>
+    <a class="close" (click)="removeToast(toast)">&times;</a>
 </div>

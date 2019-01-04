@@ -6,7 +6,8 @@ import {ToastService} from './toaster.services';
 
 @Component({
     selector: 'app-toast',
-    templateUrl: './toast.component.html'
+    templateUrl: './toaster.component.html',
+    styleUrls: ['./toaster.css']
 })
 
 export class ToastComponent {
@@ -14,18 +15,18 @@ export class ToastComponent {
 
     constructor(private toastService: ToastService) {}
 
-    OnInit() {
+    ngOnInit() {
         this.toastService.getToast().subscribe((toast: Toast) => {
             if (!toast.message) {
                 this.toasts = [];
                 return;
             }
-
+            console.log(toast, this.toasts);
             this.toasts.push(toast);
         });
     }
 
-    removeAlert(toast: Toast) {
+    removeToast(toast: Toast) {
         this.toasts = this.toasts.filter(x => x !== toast);
     }
 
@@ -37,11 +38,11 @@ export class ToastComponent {
         // return css class based on alert type
         switch (toast.type) {
             case ToastType.Error:
-                return 'alert alert-danger';
+                return 'toast toast-error';
             case ToastType.Info:
-                return 'alert alert-info';
+                return 'toast toast-info';
             case ToastType.Warning:
-                return 'alert alert-warning';
+                return 'toast toast-warning';
         }
     }
 }

@@ -1,7 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {Subject} from 'rxjs/Subject';
-import 'rxjs/add/operator/filter';
+import { Observable, Subject } from 'rxjs';
 import {Toast, ToastType} from './toast';
 
 @Injectable()
@@ -10,10 +8,11 @@ export class ToastService {
 
 
     getToast(): Observable<any> {
-        return this.subject.asObservable().filter((i: Toast) => i);
+        console.log(this.subject.asObservable());
+        return this.subject.asObservable();
     }
 
-    toast(toast: Toast) {
+    toast(toast: Toast) {        
         this.subject.next(toast);
     }
 

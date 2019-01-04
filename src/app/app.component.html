@@ -4,11 +4,11 @@
     Welcome to {{ title }}!
   </h1>
 </div>
-
-    <button (click)="createToaster('Server encountered error', 'Error')">Error</button>
+  <app-toast></app-toast>
+    <button class="btn btn-error" (click)="createToaster('Server encountered error', 'Error')">Error</button>
   
-    <button (click)="createToaster('Something info...', 'Info')">Info</button>
+    <button class="btn btn-info" (click)="createToaster('Something info...', 'Info')">Info</button>
   
-    <button (click)="createToaster('Warning encountered...', 'Warning')">Warning</button>
+    <button class="btn btn-warn" (click)="createToaster('Warning encountered...', 'Warning')">Warning</button>
   
 
