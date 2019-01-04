@@ -17,6 +17,7 @@ export class ToastService {
     }
 
     createToast(message: string, type: string) {
+        this.clearToast();
         this.toast(new Toast({message, type: ToastType[type]}));
     }
 
