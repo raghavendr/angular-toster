@@ -2,13 +2,12 @@
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
+    
   </h1>
+  
+<button class="btn btn-info" (click)="createAlert('I am info....')">Info</button>
 </div>
-  <app-toast></app-toast>
-    <button class="btn btn-error" (click)="createToaster('Server encountered error', 'Error')">Error</button>
   
-    <button class="btn btn-info" (click)="createToaster('Something info...', 'Info')">Info</button>
-  
-    <button class="btn btn-warn" (click)="createToaster('Warning encountered...', 'Warning')">Warning</button>
+  <app-alert></app-alert>
   
 

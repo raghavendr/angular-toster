@@ -1,0 +1,80 @@
+<div *ngIf="isShowMessage"
+[attr.id]="id"
+class="c-pageerrors"
+aria-labelledby="message-demo"
+role="alert">
+<button class="c-pageerrors__btn c-btn--close"
+[attr.id]="informativeType + '-cancel-button'"
+(click)="handleCancelButtonClick()">CANCEL</button>
+
+<div class="c-pageerrors__items">
+   <div class="c-pageerrors__icon">
+      <div [ngSwitch]="informativeType">
+         <div *ngSwitchCase="'Warning'">
+            <ng-template *ngTemplateOutlet="iconWarning"></ng-template>
+         </div>
+         <div *ngSwitchCase="'Success'">
+            <ng-template *ngTemplateOutlet="iconSuccess"></ng-template>
+         </div>
+         <div *ngSwitchCase="'Information'">
+            <ng-template *ngTemplateOutlet="iconInformation"></ng-template>
+         </div>
+      </div>
+   </div>
+   <div class="c-pageerrors__content">
+      <h2 i18n
+      [attr.class]="labelClass"
+      [attr.id]="informativeType + '-informative-type-label'">
+      {{informativeType}}
+      </h2>
+      <div class="c-pageerrors__list" [attr.id]="informativeType + '-informative-message-label'">
+         <p i18n>{{informativeMessage}}</p>
+      </div>
+   </div>
+</div>
+</div>
+<!--template for warning icon-->
+<ng-template #iconWarning>
+   <div>
+      <svg xmlns="http://www.w3.org/2000/svg"
+         width="40"
+         height="40"
+         viewBox="0 0 40 40">
+         <g fill="#DC2A2A"
+            fill-rule="nonzero">
+            <path d="M20 40C8.954 40 0 31.046 0 20S8.954 0 20 0s20 8.954 20 20-8.954 20-20 20zm0-1c10.493 0 19-8.507 19-19S30.493 1 20 1 1 9.507 1 20s8.507 19 19 19z"></path>
+            <path d="M17.85 7.836v15.342h3.835V7.836h-3.836zm1.917 19.178a1.918 1.918 0 1 0 0 3.836 1.918 1.918 0 0 0 0-3.836z"></path>
+         </g>
+      </svg>
+   </div>
+</ng-template>
+<!--template for success icon-->
+<ng-template #iconSuccess>
+   <div>
+      <svg xmlns="http://www.w3.org/2000/svg"
+         width="40"
+         height="40"
+         viewBox="0 0 40 40">
+         <g fill="#4F5A65"
+            fill-rule="nonzero">
+            <path d="M20 40C8.954 40 0 31.046 0 20S8.954 0 20 0s20 8.954 20 20-8.954 20-20 20zm0-1c10.493 0 19-8.507 19-19S30.493 1 20 1 1 9.507 1 20s8.507 19 19 19z"></path>
+            <path d="M30.603 14.308c.265.263.397.582.397.957s-.132.695-.397.957L18.396 28.326a1.32 1.32 0 0 1-.965.394c-.379 0-.7-.131-.965-.394l-7.069-7.009A1.297 1.297 0 0 1 9 20.36c0-.375.132-.694.397-.957l1.93-1.914a1.32 1.32 0 0 1 .966-.394c.378 0 .7.131.965.394l4.173 4.152 9.31-9.247a1.32 1.32 0 0 1 .966-.394c.379 0 .7.131.965.394l1.93 1.914z"></path>
+         </g>
+      </svg>
+   </div>
+</ng-template>
+<!--template for information icon-->
+<ng-template #iconInformation>
+   <div>
+      <svg xmlns="http://www.w3.org/2000/svg"
+         width="40"
+         height="40"
+         viewBox="0 0 40 40">
+         <g fill="#4F5A65"
+            fill-rule="nonzero">
+            <path d="M20 40C8.954 40 0 31.046 0 20S8.954 0 20 0s20 8.954 20 20-8.954 20-20 20zm0-1c10.493 0 19-8.507 19-19S30.493 1 20 1 1 9.507 1 20s8.507 19 19 19z"></path>
+            <path d="M21.25 29H23v.875h-7V29h1.75V15.875H16V15h5.25v14zm.11-17.39c-.511.51-1.13.765-1.86.765-.73 0-1.349-.255-1.86-.766a2.531 2.531 0 0 1-.765-1.859c0-.73.255-1.349.766-1.86.51-.51 1.13-.765 1.859-.765.73 0 1.349.255 1.86.766.51.51.765 1.13.765 1.859 0 .73-.255 1.349-.766 1.86z"></path>
+         </g>
+      </svg>
+   </div>
+</ng-template>
