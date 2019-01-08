@@ -21,14 +21,12 @@ export class AlertComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.AlertService.getAlert().subscribe((alert) => {
-         console.log("ogOnInit")
+    this.AlertService.subject.subscribe((alert) => {
+        
         this.isShowMessage = true;
         this.informativeMessage=alert.message;
-        console.log("informativeMessage"+this.informativeMessage )
 
         this.informativeType=alert.type;
-        console.log("informativeType"+this.informativeType )
 
         this.labelClass = 'c-pageerrors__title c-pageerrors__title--information';
         if (this.informativeType === this.informativeMessages.Warning ) {

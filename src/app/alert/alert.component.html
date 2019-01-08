@@ -10,13 +10,13 @@ role="alert">
 <div class="c-pageerrors__items">
    <div class="c-pageerrors__icon">
       <div [ngSwitch]="informativeType">
-         <div *ngSwitchCase="'Warning'">
+         <div *ngSwitchCase="informativeMessages.Warning">
             <ng-template *ngTemplateOutlet="iconWarning"></ng-template>
          </div>
-         <div *ngSwitchCase="'Success'">
+         <div *ngSwitchCase="informativeMessages.Success">
             <ng-template *ngTemplateOutlet="iconSuccess"></ng-template>
          </div>
-         <div *ngSwitchCase="'Information'">
+         <div *ngSwitchCase="informativeMessages.Information">
             <ng-template *ngTemplateOutlet="iconInformation"></ng-template>
          </div>
       </div>
@@ -33,6 +33,7 @@ role="alert">
    </div>
 </div>
 </div>
+
 <!--template for warning icon-->
 <ng-template #iconWarning>
    <div>
@@ -48,6 +49,7 @@ role="alert">
       </svg>
    </div>
 </ng-template>
+
 <!--template for success icon-->
 <ng-template #iconSuccess>
    <div>
@@ -63,6 +65,7 @@ role="alert">
       </svg>
    </div>
 </ng-template>
+
 <!--template for information icon-->
 <ng-template #iconInformation>
    <div>
